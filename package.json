@@ -1,0 +1,33 @@
+{
+  "name": "opencode-claude-code-theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude-Code theme and typography for OpenCode Desktop",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./gui-experimental": "./dist/gui-experimental.cjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "fonts": "node scripts/embed-fonts.mjs",
+    "subset": "powershell -ExecutionPolicy Bypass -File scripts/subset-fonts.ps1",
+    "build": "npm run fonts && vite build",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node scripts/smoke-test.cjs"
+  },
+  "dependencies": {
+    "@opencode/plugin": "^2.2.7"
+  },
+  "devDependencies": {
+    "solid-js": "^1.9.9",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.11",
+    "vite-plugin-solid": "^2.11.9"
+  }
+}

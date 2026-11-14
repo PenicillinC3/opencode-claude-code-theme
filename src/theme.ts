@@ -1,0 +1,37 @@
+// Claude-Code palette for the OpenCode Desktop theme picker.
+//
+// The desktop theme format starts each mode from a seven-color palette:
+// neutral (surface), ink (foreground), primary (clay accent), and the four
+// feedback hues. The host derives every semantic token from these seeds.
+//
+// Both variants stay inside the warm Claude family. There is no cool SaaS
+// blue: info uses Claude's sky tone, success uses cactus, warnings are kraft
+// amber, and errors are the deeper clay red.
+
+export const claudeCode = {
+  $schema: "https://opencode.ai/desktop-theme.json",
+  name: "Claude-Code",
+  id: "claude-code",
+  light: {
+    palette: {
+      neutral: "#F8F8F6",
+      ink: "#121212",
+      primary: "#D97757",
+      success: "#788C5D",
+      warning: "#B98A4B",
+      error: "#C6613F",
+      info: "#6A9BCC",
+    },
+  },
+  dark: {
+    palette: {
+      neutral: "#262624",
+      ink: "#FAF9F5",
+      primary: "#D97757",
+      success: "#9DB884",
+      warning: "#D8B06A",
+      error: "#E08A72",
+      info: "#8AB4D8",
+    },
+  },
+}

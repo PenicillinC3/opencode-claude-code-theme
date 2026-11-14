@@ -250,4 +250,4 @@ tt {
 [data-action="composer-submit"]:active:not(:disabled) {
   background-color: var(--v2-overlay-simple-overlay-pressed) !important;
 }
-`,v={$schema:"https://opencode.ai/desktop-theme.json",name:"Claude-Code",id:"claude-code",light:{palette:{neutral:"#F8F8F6",ink:"#121212",primary:"#D97757",success:"#788C5D",warning:"#B98A4B",error:"#C6613F",info:"#6A9BCC"}},dark:{palette:{neutral:"#262624",ink:"#FAF9F5",primary:"#D97757",success:"#9DB884",warning:"#D8B06A",error:"#E08A72",info:"#8AB4D8"}}},d=f.Plugin.define({setup(b){b.add(f.Theme,v),b.add(f.Style,t)}});exports.default=d;
+`,v={$schema:"https://opencode.ai/desktop-theme.json",name:"Claude-Code",id:"claude-code",light:{palette:{neutral:"#F8F8F6",ink:"#121212",primary:"#D97757",success:"#788C5D",warning:"#B98A4B",error:"#C6613F",info:"#6A9BCC"},v2Overrides:{"v2-background-bg-base":"#FCFCFB","v2-background-bg-deep":"#FCFCFB"}},dark:{palette:{neutral:"#262624",ink:"#FAF9F5",primary:"#D97757",success:"#9DB884",warning:"#D8B06A",error:"#E08A72",info:"#8AB4D8"}}},d=f.Plugin.define({setup(b){b.add(f.Theme,v),b.add(f.Style,t)}});exports.default=d;

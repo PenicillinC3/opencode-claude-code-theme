@@ -22,6 +22,13 @@ export const claudeCode = {
       error: "#C6613F",
       info: "#6A9BCC",
     },
+    // The palette derivation gives the window chrome (the vertical tab sidebar)
+    // a darker step than the session panel. Both use one surface so the sidebar
+    // does not read as a separate sheet.
+    v2Overrides: {
+      "v2-background-bg-base": "#FCFCFB",
+      "v2-background-bg-deep": "#FCFCFB",
+    },
   },
   dark: {
     palette: {

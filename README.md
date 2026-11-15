@@ -22,6 +22,20 @@ typography to OpenCode Desktop.
 The repository ships a prebuilt `dist/gui-experimental.cjs`.
 Building is only needed if you change the source.
 
+## Quick start (Windows)
+
+[Download `install.bat`](https://github.com/PenicillinC3/opencode-claude-code-theme/raw/main/install.bat)
+and double-click it.
+
+- Copies the theme to `%LOCALAPPDATA%\opencode-claude-code-theme`.
+- Adds it to `%USERPROFILE%\.config\opencode\opencode.jsonc`, keeping your
+  comments and other plugins, after a timestamped backup.
+- Needs no Node.js, npm, or build step.
+
+Restart OpenCode Desktop, then choose **Claude-Code** in
+**Settings › Appearance › Theme**. If you already cloned the repository, run
+`install.bat` from that folder instead; it installs that copy.
+
 ## Requirements
 
 - OpenCode Desktop 2.2.6 or newer (the version with desktop GUI plugins).
@@ -33,11 +47,11 @@ Building is only needed if you change the source.
 
 ## Install
 
-### Windows: one-click installer
+### Windows: one-click installer (recommended)
 
-1. Download [`install.bat`](install.bat) and double-click it. If you already
-   have the repository (cloned or unzipped), run `install.bat` from that folder
-   instead; it installs that copy.
+1. Download [`install.bat`](https://github.com/PenicillinC3/opencode-claude-code-theme/raw/main/install.bat)
+   and double-click it. If you already have the repository (cloned or unzipped),
+   run `install.bat` from that folder instead; it installs that copy.
 2. The script downloads the latest theme (about 10 MB), copies it to
    `%LOCALAPPDATA%\opencode-claude-code-theme`, and adds the plugin to
    `%USERPROFILE%\.config\opencode\opencode.jsonc`. It keeps your comments,

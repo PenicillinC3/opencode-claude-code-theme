@@ -18,6 +18,20 @@ Claude 风格的排版。
 
 仓库已经包含构建好的 `dist/gui-experimental.cjs`。只有修改源码后才需要重新构建。
 
+## 快速开始（Windows）
+
+[下载 `install.bat`](https://github.com/PenicillinC3/opencode-claude-code-theme/raw/main/install.bat)，
+双击运行。
+
+- 把主题复制到 `%LOCALAPPDATA%\opencode-claude-code-theme`。
+- 写进 `%USERPROFILE%\.config\opencode\opencode.jsonc`，保留你的注释和其他插件，
+  改动前先在同目录做一份带时间戳的备份。
+- 不需要 Node.js、npm，也不需要任何构建步骤。
+
+重启 OpenCode Desktop，在 **Settings › Appearance › Theme** 里选择
+**Claude-Code**。如果已经克隆了仓库，直接在仓库目录运行 `install.bat`，安装的是
+这份本地副本。
+
 ## 环境要求
 
 - OpenCode Desktop 2.2.6 或更高版本（带桌面 GUI 插件机制的版本）。
@@ -28,10 +42,12 @@ Claude 风格的排版。
 
 ## 安装
 
-### Windows 一键安装
+### Windows 一键安装（推荐）
 
-1. 下载 [`install.bat`](install.bat) 并双击运行。如果你已经克隆或解压了仓库，就在
-   仓库目录里运行 `install.bat`，脚本会安装这份本地副本。
+1. 下载
+   [`install.bat`](https://github.com/PenicillinC3/opencode-claude-code-theme/raw/main/install.bat)
+   并双击运行。如果你已经克隆或解压了仓库，就在仓库目录里运行 `install.bat`，脚本会
+   安装这份本地副本。
 2. 脚本会下载最新的主题（约 10 MB），复制到
    `%LOCALAPPDATA%\opencode-claude-code-theme`，并把插件写进
    `%USERPROFILE%\.config\opencode\opencode.jsonc`。它会保留你配置里的注释，改动前

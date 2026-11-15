@@ -264,7 +264,7 @@ Chinese, Latin, and punctuation. That keeps the bundle practical. Characters
 outside the subset, and Japanese/Korean text, fall back to the platform CJK
 fonts (`PingFang SC`, `Microsoft YaHei`, `Noto Sans CJK SC`, `SimSun`, etc.).
 
-The Source Han glyphs are instanced at weight 450 and compressed by 8%
+The Source Han glyphs are instanced at weight 450 and compressed by 7.5%
 **vertically only** (horizontal advances and widths are unchanged). Source Han
 Sans has long, thin vertical strokes that look taller than the Latin UI font at
 13–16 px; the small vertical correction keeps mixed Chinese/English lines even.

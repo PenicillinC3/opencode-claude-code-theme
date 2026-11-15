@@ -8,7 +8,7 @@
 // Chinese: Source Han Sans CN + Source Han Serif SC, subset to GB2312 (7,400
 // code points including Latin and punctuation) so the plugin stays a
 // manageable size. The subsets are static 450 weight instances with the glyphs
-// compressed 8% vertically, so Chinese text matches the optical height of the
+// compressed 7.5% vertically, so Chinese text matches the optical height of the
 // UI at small sizes. Characters outside the subset fall back to the platform
 // CJK font declared in the CSS stack.
 //

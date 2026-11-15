@@ -5,7 +5,7 @@
 # assets\gb2312.txt lists the covered code points: Latin, common punctuation,
 # and every character encodable in GB2312 (7,402 total).
 #
-# The subsets are instanced at 450 and compressed 8% vertically so the
+# The subsets are instanced at 450 and compressed 7.5% vertically so the
 # Chinese glyphs match the optical height of the UI text at small sizes.
 #
 # Requires Python with fonttools and brotli:

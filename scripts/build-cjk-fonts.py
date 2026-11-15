@@ -2,7 +2,7 @@
 #
 # 1. Subsets each Source Han variable font to the GB2312 coverage list.
 # 2. Instances it at the single weight the desktop UI uses.
-# 3. Compresses the glyphs vertically by 8% so Source Han's tall, thin
+# 3. Compresses the glyphs vertically by 7.5% so Source Han's tall, thin
 #    letterforms sit closer to the system CJK font's optical height at small
 #    UI sizes. Horizontal advances and widths are untouched.
 # 4. Writes compact WOFF2 files into assets/fonts.
@@ -26,7 +26,7 @@ SOURCE = REPO / "source"
 OUT_DIR = ROOT / "assets" / "fonts"
 UNICODES = ROOT / "assets" / "gb2312.txt"
 
-SCALE_Y = 0.92
+SCALE_Y = 0.925
 WEIGHTS = (450,)
 
 FONTS = (

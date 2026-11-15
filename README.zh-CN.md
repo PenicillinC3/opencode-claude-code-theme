@@ -32,7 +32,7 @@ Claude 风格的排版。
 
 1. 下载 [`install.bat`](install.bat) 并双击运行。如果你已经克隆或解压了仓库，就在
    仓库目录里运行 `install.bat`，脚本会安装这份本地副本。
-2. 脚本会下载最新的主题（约 9 MB），复制到
+2. 脚本会下载最新的主题（约 10 MB），复制到
    `%LOCALAPPDATA%\opencode-claude-code-theme`，并把插件写进
    `%USERPROFILE%\.config\opencode\opencode.jsonc`。它会保留你配置里的注释，改动前
    先在同目录写一份带时间戳的备份，也不会动其他插件。整个过程不需要 Node.js、npm

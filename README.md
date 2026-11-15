@@ -38,7 +38,7 @@ Building is only needed if you change the source.
 1. Download [`install.bat`](install.bat) and double-click it. If you already
    have the repository (cloned or unzipped), run `install.bat` from that folder
    instead; it installs that copy.
-2. The script downloads the latest theme (about 9 MB), copies it to
+2. The script downloads the latest theme (about 10 MB), copies it to
    `%LOCALAPPDATA%\opencode-claude-code-theme`, and adds the plugin to
    `%USERPROFILE%\.config\opencode\opencode.jsonc`. It keeps your comments,
    writes a timestamped backup of the config first, and leaves other plugins

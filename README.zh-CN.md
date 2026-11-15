@@ -21,34 +21,46 @@ Claude 风格的排版。
 ## 环境要求
 
 - OpenCode Desktop 2.2.6 或更高版本（带桌面 GUI 插件机制的版本）。
+- Windows 10 或 11，用于一键安装脚本。
 - 安装 Anthropic Sans 和 Anthropic Serif，才能得到预期的拉丁排版（可选，见
   [字体与覆盖范围](#字体与覆盖范围)）。
-- Node.js 20+ 和 npm，用于安装运行时依赖和构建。
+- Node.js 20+ 和 npm 只在从源码构建时需要，安装主题不需要。
 
 ## 安装
 
-仓库可以克隆或解压到任意位置。注册时指向包含 `package.json` 的目录即可，插件
-不需要固定在某个路径。
+### Windows 一键安装
 
-### 1. 获取插件
+1. 下载 [`install.bat`](install.bat) 并双击运行。如果你已经克隆或解压了仓库，就在
+   仓库目录里运行 `install.bat`，脚本会安装这份本地副本。
+2. 脚本会下载最新的主题（约 9 MB），复制到
+   `%LOCALAPPDATA%\opencode-claude-code-theme`，并把插件写进
+   `%USERPROFILE%\.config\opencode\opencode.jsonc`。它会保留你配置里的注释，改动前
+   先在同目录写一份带时间戳的备份，也不会动其他插件。整个过程不需要 Node.js、npm
+   或任何构建步骤。
+3. 重启 OpenCode Desktop，打开 **Settings › Appearance › Theme**，选择
+   **Claude-Code**。
+
+再次运行 `install.bat` 会更新已安装的副本，配置里始终只有一条记录。要移除时运行
+[`uninstall.bat`](uninstall.bat)。
+
+如果 Windows 在运行前弹出提示，选择 **更多信息 › 仍要运行**：这些脚本都是纯文本，
+可以直接在仓库里查看。
+
+### 手动安装（任意平台）
+
+仓库可以克隆或解压到任意位置。注册时指向包含 `package.json` 的目录即可，插件
+不需要固定在某个路径，运行时也不需要 `npm install`。
+
+#### 1. 获取插件
 
 ```bash
 git clone https://github.com/PenicillinC3/opencode-claude-code-theme.git
-cd opencode-claude-code-theme
-npm install --omit=dev
 ```
 
 如果你重命名或 fork 了仓库，把 `opencode-claude-code-theme` 换成实际的仓库名。
+不用 git 也可以：在 GitHub 上下载 ZIP，解压到任意目录。
 
-不用 git 也可以：在 GitHub 上下载 ZIP，解压到任意目录，进入解压后的目录，运行
-`npm install --omit=dev`。
-
-`--omit=dev` 只安装服务器入口需要的运行时依赖。如果你还要构建，直接运行
-`npm install`。
-
-Windows PowerShell 如果被执行策略拦住 `npm`，改用 `npm.cmd install --omit=dev`。
-
-### 2. 注册插件
+#### 2. 注册插件
 
 打开**全局** OpenCode 配置，不存在就新建：
 
@@ -84,7 +96,7 @@ Windows PowerShell 如果被执行策略拦住 `npm`，改用 `npm.cmd install -
 - 路径含空格时，把空格转义成 `%20`，或者把仓库移到没有空格的路径。
 - 安装完成后，仓库目录里应当有 `package.json`、`src/` 和 `dist/`。
 
-### 3. 启用主题
+#### 3. 启用主题
 
 1. 重启 OpenCode Desktop。配置文件会被监听，但本地插件包有时需要重启才会加载。
 2. 打开 **Settings › Extensions › Plugins**，确认列表里有
@@ -93,18 +105,18 @@ Windows PowerShell 如果被执行策略拦住 `npm`，改用 `npm.cmd install -
 
 ## 更新
 
-```bash
-cd opencode-claude-code-theme
-git pull
-npm install --omit=dev
-```
+使用安装脚本时，再运行一次 `install.bat`。
 
-然后重新加载插件或重启应用。
+使用本地仓库时，运行 `git pull`，然后重新加载插件或重启应用。如果你在本地构建
+插件包，再运行一次 `npm run build`。
 
 ## 卸载
 
-从 `plugins` 数组里删除对应条目并重新加载即可。如果只是暂时隐藏，可以在插件 id
-前加 `-`。条目删除后，直接删掉仓库目录也不会影响应用。
+使用安装脚本时，运行 [`uninstall.bat`](uninstall.bat)。它会从 `plugins` 数组里
+删除对应条目，并删除 `%LOCALAPPDATA%\opencode-claude-code-theme`。
+
+手动卸载时，从 `plugins` 数组里删除对应条目并重新加载即可。如果只是暂时隐藏，
+可以在插件 id 前加 `-`。条目删除后，直接删掉仓库目录也不会影响应用。
 
 ## 从源码构建
 
@@ -247,8 +259,12 @@ MIT 许可覆盖代码和主题定义，不覆盖字体文件。
 opencode-claude-code-theme/
   README.md
   README.zh-CN.md
+  .gitattributes
   .gitignore
   LICENSE
+  install.bat            一键安装（Windows）
+  install.ps1            安装脚本本体，也负责 -Uninstall
+  uninstall.bat          一键卸载（Windows）
   src/
     index.ts             服务器端插件入口
     gui.ts               桌面 GUI 入口（Theme + Style）

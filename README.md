@@ -25,36 +25,49 @@ Building is only needed if you change the source.
 ## Requirements
 
 - OpenCode Desktop 2.2.6 or newer (the version with desktop GUI plugins).
+- Windows 10 or 11 for the one-click installer.
 - Anthropic Sans and Anthropic Serif installed for the intended Latin typography
   (optional; see [Fonts and coverage](#fonts-and-coverage)).
-- Node.js 20+ and npm, to install the runtime dependency and to build.
+- Node.js 20+ and npm, only to build from source. Installing the theme needs
+  neither.
 
 ## Install
 
-The repository can be cloned or extracted anywhere. Register the folder that
-contains `package.json`; the plugin does not need to sit at a fixed path.
+### Windows: one-click installer
 
-### 1. Get the plugin
+1. Download [`install.bat`](install.bat) and double-click it. If you already
+   have the repository (cloned or unzipped), run `install.bat` from that folder
+   instead; it installs that copy.
+2. The script downloads the latest theme (about 9 MB), copies it to
+   `%LOCALAPPDATA%\opencode-claude-code-theme`, and adds the plugin to
+   `%USERPROFILE%\.config\opencode\opencode.jsonc`. It keeps your comments,
+   writes a timestamped backup of the config first, and leaves other plugins
+   alone. No Node.js, npm, or build step is involved.
+3. Restart OpenCode Desktop, then open **Settings › Appearance › Theme** and
+   choose **Claude-Code**.
+
+Running `install.bat` again updates the installed copy and keeps a single config
+entry. Run [`uninstall.bat`](uninstall.bat) to remove both.
+
+If Windows asks before running the file, choose **More info › Run anyway**: the
+scripts are plain text and can be read in this repository.
+
+### Manual install (any platform)
+
+The repository can be cloned or extracted anywhere. Register the folder that
+contains `package.json`; the plugin does not need to sit at a fixed path, and it
+needs no `npm install` at runtime.
+
+#### 1. Get the plugin
 
 ```bash
 git clone https://github.com/PenicillinC3/opencode-claude-code-theme.git
-cd opencode-claude-code-theme
-npm install --omit=dev
 ```
 
 Replace `opencode-claude-code-theme` with your repository name if you renamed or
-forked it.
+forked it. Without git, download the repository as a ZIP and extract it anywhere.
 
-Without git: download the repository as a ZIP, extract it anywhere, open a
-terminal in the extracted folder, and run `npm install --omit=dev`.
-
-`--omit=dev` installs only the runtime dependency used by the server-side entry.
-Run a plain `npm install` if you also want to build.
-
-On Windows PowerShell, if `npm` is blocked by the execution policy, use
-`npm.cmd install --omit=dev`.
-
-### 2. Register the plugin
+#### 2. Register the plugin
 
 Open the **global** OpenCode config, creating it if necessary:
 
@@ -93,7 +106,7 @@ Notes:
 - The repository folder must contain `package.json`, `src/` and `dist/` after
   installing.
 
-### 3. Enable the theme
+#### 3. Enable the theme
 
 1. Restart OpenCode Desktop. Config changes are watched, but local plugin
    bundles can require a restart.
@@ -104,19 +117,20 @@ Notes:
 
 ## Update
 
-```bash
-cd opencode-claude-code-theme
-git pull
-npm install --omit=dev
-```
+With the installer, run `install.bat` again.
 
-Then reload the plugin or restart the app.
+From a checkout, run `git pull`, then reload the plugin or restart the app. Run
+`npm run build` as well if you build the bundle locally.
 
 ## Uninstall
 
-Remove the entry from the `plugins` array and reload. To hide the plugin without
-removing the entry, prefix its id with `-`. Deleting the repository folder is
-safe once the entry is gone.
+With the installer, run [`uninstall.bat`](uninstall.bat). It removes the entry
+from the `plugins` array and deletes
+`%LOCALAPPDATA%\opencode-claude-code-theme`.
+
+By hand, remove the entry from the `plugins` array and reload. To hide the
+plugin without removing the entry, prefix its id with `-`. Deleting the
+repository folder is safe once the entry is gone.
 
 ## Build from source
 
@@ -284,8 +298,12 @@ The MIT license covers the code and theme definitions, not the font files.
 opencode-claude-code-theme/
   README.md
   README.zh-CN.md
+  .gitattributes
   .gitignore
   LICENSE
+  install.bat            one-click installer (Windows)
+  install.ps1            installer logic; also handles -Uninstall
+  uninstall.bat          one-click uninstaller (Windows)
   src/
     index.ts             server-side plugin entry
     gui.ts               desktop GUI entry (Theme + Style)

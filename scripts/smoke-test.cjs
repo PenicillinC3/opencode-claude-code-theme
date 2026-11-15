@@ -42,6 +42,19 @@ assert.equal(theme.light.palette.primary, "#D97757")
 assert.equal(theme.dark.palette.neutral, "#262624")
 assert.equal(theme.dark.palette.ink, "#FAF9F5")
 
+// The window chrome (vertical tab sidebar) and the session panel must share one
+// surface; the palette derivation alone puts them on adjacent grey steps.
+assert.equal(
+  theme.light.v2Overrides["v2-background-bg-base"],
+  "#FCFCFB",
+  "light session surface must be #FCFCFB",
+)
+assert.equal(
+  theme.light.v2Overrides["v2-background-bg-deep"],
+  "#FCFCFB",
+  "light sidebar surface must match the session surface",
+)
+
 for (const family of ["Anthropic Sans", "Anthropic Serif", "Source Han Sans CN", "Source Han Serif SC"]) {
   assert.ok(css.includes(`font-family: "${family}"`), `css must define ${family}`)
 }

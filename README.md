@@ -199,6 +199,10 @@ then derives `--font-family-text`, `--v2-font-family-sans` and
 `html:root` so they win regardless of stylesheet order. Markdown `h1`–`h3` use
 Anthropic Serif (Source Han Serif SC for Chinese); reasoning output stays sans.
 
+The composer is lifted from the app's 13 px to the 14 px body size, with its
+20 px line height kept, so the input reads at the same size and compression as
+the messages above it.
+
 Claude's sidebar session list is text-only: rows carry no project tile. The
 theme removes the tile and its 16 px slot, so session titles start at the list's
 left edge instead of after an avatar column. Unread and activity markers stay at

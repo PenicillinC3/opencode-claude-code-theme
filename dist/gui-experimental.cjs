@@ -228,6 +228,17 @@ tt {
 }
 
 /*
+ * The app sets the composer one step below body text, at 13 px, which reads
+ * lighter and looser than the messages above it and hides the compressed face
+ * at that size. Lift the editor and its hint line to the body size; the 20 px
+ * line height is left alone, so the composer keeps its height.
+ */
+[data-component="composer-editor"],
+[data-component="composer-editor"] + div {
+  font-size: 14px !important;
+}
+
+/*
  * The composer's submit control is a quiet arrow in Claude, not a framed
  * button. Keep the native size, icon and hover fill; remove the outline and
  * the filled paint.

@@ -7,6 +7,12 @@ typography to OpenCode Desktop.
 
 - Warm paper palette with clay `#D97757` as the only accent, in light and dark
   variants.
+- Light mode follows Claude's window: a warm grey rail (`#F0EFEA`) behind the tab
+  sidebar and its chrome, near-white paper (`#FBFBF9`) for the session, and warm
+  black text.
+- Dark mode reads in one warm grey: body copy, labels, captions and timestamps
+  all use `#B0AEA5`. Links, code highlighting and the text on filled buttons
+  keep their own colors.
 - Anthropic Sans for UI text and Anthropic Serif for Markdown headings, using
   the copies installed on your machine. If they are missing, the theme falls
   back to the embedded Source Han Latin glyphs and then the platform fonts.

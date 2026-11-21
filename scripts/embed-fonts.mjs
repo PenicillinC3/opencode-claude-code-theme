@@ -228,6 +228,12 @@ tt {
   color: #3d3d3a !important;
 }
 
+/* Dark mode uses the theme's text color, so the list matches the messages. */
+[data-color-scheme="dark"] [data-slot="vertical-tabs-sidebar"] [data-titlebar-tab-title],
+[data-color-scheme="dark"] [data-slot="vertical-tabs-sidebar"] [data-titlebar-tab-action] {
+  color: var(--v2-text-text-base) !important;
+}
+
 /*
  * Claude's session header names the location without a project tile, so the
  * header reads as a line of text rather than a directory card.
@@ -324,6 +330,10 @@ tt {
  */
 [data-component="composer-editor"] + div {
   color: #3d3d3a !important;
+}
+
+[data-color-scheme="dark"] [data-component="composer-editor"] + div {
+  color: var(--v2-text-text-base) !important;
 }
 
 /*

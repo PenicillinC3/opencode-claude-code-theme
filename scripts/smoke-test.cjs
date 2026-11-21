@@ -36,24 +36,31 @@ const css = additions.find((item) => item.registry === stub.Style).value
 
 assert.equal(theme.name, "Claude-Code")
 assert.equal(theme.id, "claude-code")
-assert.equal(theme.light.palette.neutral, "#F8F8F6")
-assert.equal(theme.light.palette.ink, "#121212")
+assert.equal(theme.light.palette.neutral, "#F7F6F2")
+assert.equal(theme.light.palette.ink, "#1F1E1D")
 assert.equal(theme.light.palette.primary, "#D97757")
 assert.equal(theme.dark.palette.neutral, "#262624")
 assert.equal(theme.dark.palette.ink, "#FAF9F5")
 
-// The window chrome (vertical tab sidebar) and the session panel must share one
-// surface; the palette derivation alone puts them on adjacent grey steps.
+// Light mode is two surfaces: a warm grey rail behind the tab sidebar and its
+// chrome, and near-white paper for the session.
 assert.equal(
   theme.light.v2Overrides["v2-background-bg-base"],
-  "#FCFCFB",
-  "light session surface must be #FCFCFB",
+  "#FBFBF9",
+  "light session surface must be #FBFBF9",
 )
 assert.equal(
   theme.light.v2Overrides["v2-background-bg-deep"],
-  "#FCFCFB",
-  "light sidebar surface must match the session surface",
+  "#F0EFEA",
+  "light sidebar rail must be #F0EFEA",
 )
+assert.equal(theme.light.overrides["text-base"], "#1F1E1D", "light text must be warm black")
+
+// Dark mode reads in one warm grey, on both token sets.
+for (const token of ["v2-text-text-base", "v2-text-text-muted", "v2-text-text-faint"]) {
+  assert.equal(theme.dark.v2Overrides[token], "#B0AEA5", `dark ${token} must be #B0AEA5`)
+}
+assert.equal(theme.dark.overrides["text-weak"], "#B0AEA5", "dark legacy text must be #B0AEA5")
 
 for (const family of ["Anthropic Sans", "Anthropic Serif", "Source Han Sans CN", "Source Han Serif SC"]) {
   assert.ok(css.includes(`font-family: "${family}"`), `css must define ${family}`)

@@ -129,6 +129,12 @@ tt {
   color: #3d3d3a !important;
 }
 
+/* Dark mode uses the theme's text color, so the list matches the messages. */
+[data-color-scheme="dark"] [data-slot="vertical-tabs-sidebar"] [data-titlebar-tab-title],
+[data-color-scheme="dark"] [data-slot="vertical-tabs-sidebar"] [data-titlebar-tab-action] {
+  color: var(--v2-text-text-base) !important;
+}
+
 /*
  * Claude's session header names the location without a project tile, so the
  * header reads as a line of text rather than a directory card.
@@ -227,6 +233,10 @@ tt {
   color: #3d3d3a !important;
 }
 
+[data-color-scheme="dark"] [data-component="composer-editor"] + div {
+  color: var(--v2-text-text-base) !important;
+}
+
 /*
  * The app sets the composer one step below body text, at 13 px, which reads
  * lighter and looser than the messages above it and hides the compressed face
@@ -261,4 +271,4 @@ tt {
 [data-action="composer-submit"]:active:not(:disabled) {
   background-color: var(--v2-overlay-simple-overlay-pressed) !important;
 }
-`,n={$schema:"https://opencode.ai/desktop-theme.json",name:"Claude-Code",id:"claude-code",light:{palette:{neutral:"#F8F8F6",ink:"#121212",primary:"#D97757",success:"#788C5D",warning:"#B98A4B",error:"#C6613F",info:"#6A9BCC"},v2Overrides:{"v2-background-bg-base":"#FCFCFB","v2-background-bg-deep":"#FCFCFB"}},dark:{palette:{neutral:"#262624",ink:"#FAF9F5",primary:"#D97757",success:"#9DB884",warning:"#D8B06A",error:"#E08A72",info:"#8AB4D8"}}},e=t.Plugin.define({setup(f){f.add(t.Theme,n),f.add(t.Style,v)}});exports.default=e;
+`,n={$schema:"https://opencode.ai/desktop-theme.json",name:"Claude-Code",id:"claude-code",light:{palette:{neutral:"#F7F6F2",ink:"#1F1E1D",primary:"#D97757",success:"#788C5D",warning:"#B98A4B",error:"#C6613F",info:"#6A9BCC"},overrides:{"background-base":"#FBFBF9","text-base":"#1F1E1D","text-weak":"#5C5B56","text-weaker":"#8C8A83","text-strong":"#171614","text-stronger":"#171614"},v2Overrides:{"v2-background-bg-base":"#FBFBF9","v2-background-bg-deep":"#F0EFEA","v2-text-text-base":"#1F1E1D","v2-text-text-muted":"#5C5B56","v2-text-text-faint":"#8C8A83"}},dark:{palette:{neutral:"#262624",ink:"#FAF9F5",primary:"#D97757",success:"#9DB884",warning:"#D8B06A",error:"#E08A72",info:"#8AB4D8"},overrides:{"text-base":"#B0AEA5","text-weak":"#B0AEA5","text-weaker":"#B0AEA5","text-strong":"#B0AEA5","text-stronger":"#B0AEA5"},v2Overrides:{"v2-text-text-base":"#B0AEA5","v2-text-text-muted":"#B0AEA5","v2-text-text-faint":"#B0AEA5","v2-text-text-weak":"#B0AEA5","v2-text-text-subtle":"#B0AEA5"}}},e=t.Plugin.define({setup(f){f.add(t.Theme,n),f.add(t.Style,v)}});exports.default=e;
